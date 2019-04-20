@@ -1,0 +1,476 @@
+.go {
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    right: 30px;
+    top: 30px;
+    z-index: 1001;
+    animation: more 1s linear infinite alternate;
+}
+
+.more {
+    position: fixed;
+    right: 60px;
+    bottom: 80px;
+    z-index: 1001;
+    animation: more 0.8s linear 0.1s infinite alternate;
+}
+
+/* 内容容器 */
+.content {
+    width: 900px;
+    height: 600px;
+    /* 	background: rgba(0,0,0,.1); */
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -450px;
+}
+
+.screen1 {
+    background: url(../images/01-bg.png) no-repeat center bottom;
+}
+
+.screen1 .goods {
+    margin-top: 250px;
+    text-align: center;
+}
+
+.screen1 .soft {
+    position: absolute;
+    left: 150px;
+    top: 100px;
+    animation: soft 0.8s linear infinite alternate;
+}
+
+.screen1 .fly {
+    position: absolute;
+    top: 20px;
+    right: -50px;
+    animation: fly01 1s linear infinite alternate;
+}
+
+/* 第一屏动画 */
+@keyframes fly01 {
+    from {
+        transform: translateY(-30px);
+    }
+    to {
+        transform: translateY(30px);
+    }
+}
+
+@keyframes more {
+    from {
+        transform: translateY(-10px);
+    }
+    to {
+        transform: translateY(10px);
+    }
+}
+
+@keyframes soft {
+    from {
+        transform: translateY(-20px);
+    }
+    to {
+        transform: translateY(20px);
+    }
+}
+
+/* 第二屏 */
+.screen2 {
+    background: url(../images/02-bg.png) no-repeat center bottom;
+}
+
+.screen2 .goods {
+    position: absolute;
+    left: 50%;
+    margin-left: -225px;
+    bottom: 210px;
+    transform-origin: right bottom;
+    transform: scale(0);
+}
+
+.screen2 .soft {
+    position: absolute;
+    left: 285px;
+    top: 130px;
+    transform: scale(0.5);
+    opacity: 0;
+    z-index: 1001;
+}
+
+.screen2 .input {
+    position: absolute;
+    right: 171px;
+    top: 120px;
+    opacity: 0;
+    transform-origin: right top;
+    /* 右上角状态 	transform: scale(0.7); */
+    /* 中间的位置	transform: translate(-160px,120px); */
+    /* 最初的状态	transform: translate(1000px,120px); */
+}
+
+.screen2 .key {
+    position: absolute;
+    left: 100px;
+    top: 4px;
+    opacity: 0;
+}
+
+.screen2 .text {
+    text-align: center;
+}
+
+.screen2 .text2 {
+    position: absolute;
+    opacity: 0;
+}
+
+/* 第二屏动画制作 */
+/* 1.搜索框从右边浮出 */
+/* 2.在显示器中间停留  显示关键字 */
+/* 3.商品列表动画制作 */
+
+/* 文字动画淡入淡出 */
+.screen2.now .text .text1 {
+    position: absolute;
+    opacity: 0;
+}
+
+.screen2.now .text .text2 {
+    position: static;
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+.screen2.now .input {
+    /* 动画完成状态控制 backwards(回到初始状态) forwards(保持动画最终状态) */
+    animation: input 3s linear forwards;
+}
+
+.screen2.now .input .key {
+    opacity: 1;
+    transition: all 1s linear 1s;
+}
+
+.screen2.now .goods {
+    /* none清空所有转换属性 */
+    transform: none;
+    transition: all 1s linear 2s;
+}
+
+/*  */
+.screen2.leaved .soft {
+    animation: soft2 1s linear;
+}
+
+@keyframes input {
+    0% {
+        opacity: 1;
+        transform: translate(1000px, 120px);
+    }
+    33% {
+        transform: translate(-160px, 120px);
+    }
+    67% {
+        transform: translate(-160px, 120px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(0.7);
+    }
+}
+
+@keyframes soft2 {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 1;
+        transform: translateY(775px) translateX(-70px);
+    }
+}
+
+/* 第三屏  */
+.screen3 {
+    background: url(../images/03-bg.png) no-repeat center bottom;
+}
+
+.screen3 .soft {
+    position: absolute;
+    top: 185px;
+    left: 215px;
+    display: none;
+    z-index: 1001;
+}
+
+.screen3 .change {
+    position: absolute;
+    right: 116px;
+    bottom: 170px;
+}
+
+.screen3 .change img:last-child {
+    position: absolute;
+    opacity: 0;
+}
+
+.screen3 .cart {
+    position: absolute;
+    right: 190px;
+    bottom: 100px;
+}
+
+.screen3 .cart img:last-child {
+    position: absolute;
+    opacity: 0;
+}
+
+/* 第三屏动画 */
+.screen3.now .soft {
+    display: block;
+}
+
+.screen3.now .change img:first-child {
+    display: none;
+    transition: all 0.5s linear;
+}
+
+.screen3.now .change img:last-child {
+    position: static;
+    opacity: 1;
+    transition: all 0.5s linear;
+}
+
+.screen3.now .cart img:first-child {
+    display: none;
+    transition: all 0.5s linear;
+}
+
+.screen3.now .cart img:last-child {
+    position: static;
+    opacity: 1;
+    transition: all 1s linear;
+}
+
+.screen3.leaved .soft {
+    animation: soft3 1s linear backwards;
+}
+
+@keyframes soft3 {
+    from {
+
+    }
+    to {
+        transform: translate(150px, 700px) rotate(45deg);
+    }
+}
+
+/* 第四屏 */
+.screen4 {
+    background: url(../images/04-bg.png) no-repeat center bottom;
+}
+
+.screen4 .cloud {
+    position: absolute;
+    top: -150px;
+    left: -400px;
+    animation: cloud 10s linear infinite alternate;
+}
+
+.screen4 .soft {
+    position: absolute;
+    top: 170px;
+    left: 370px;
+    z-index: 1001;
+    opacity: 0;
+    transform: rotate(45deg);
+}
+
+.screen4 .text {
+    text-align: center;
+}
+
+.screen4 .text img:first-child {
+    position: static;
+    opacity: 1;
+}
+
+.screen4 .text img:last-child {
+    position: absolute;
+    opacity: 0;
+}
+
+.screen4 .cart {
+    position: absolute;
+    bottom: 45px;
+    left: 220px;
+    z-index: 1002;
+}
+
+.screen4 .address {
+    position: absolute;
+    width: 283px;
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.screen4 .address img:last-child {
+    position: absolute;
+    display: none;
+    top: 55px;
+    left: 60px;
+}
+
+/* 第四屏动画 */
+.screen4 .text.show img:first-child {
+    position: absolute;
+    opacity: 0;
+}
+
+.screen4 .text.show img:last-child {
+    position: static;
+    opacity: 1;
+}
+
+.screen4.now .soft {
+    opacity: 1;
+    transform: translateX(1000px) rotate(45deg);
+    transition: transform 3s linear;
+}
+
+.screen4.now .cart {
+    transform: translateX(1000px);
+    transition: transform 3s linear;
+}
+
+.screen4 .address.action img:last-child {
+    opacity: 1;
+    transition: all 2s linear;
+}
+
+@keyframes cloud {
+    from {
+
+    }
+    to {
+        transform: translateX(1000px);
+    }
+}
+
+/* 第五屏 */
+.screen5 {
+    background: url(../images/05-bg.png);
+}
+
+.screen5 .crad {
+    position: absolute;
+    top: 200px;
+}
+
+.screen5 .crad .c1 {
+    position: relative;
+    z-index: 1;
+}
+
+.screen5 .crad .c2 {
+    position: absolute;
+    left: 130px;
+    top: -85px;
+    transform: translateY(100px);
+}
+
+.screen5 .mouse {
+    position: absolute;
+    right: 0;
+    top: -10px;
+    width: 300px;
+    height: 800px;
+}
+
+.screen5 .mouse .over {
+    position: relative;
+    overflow: hidden;
+    width: 400px;
+    height: 600px;
+    top: -145px;
+}
+
+.screen5 .mouse .m1, .m2 {
+    position: absolute;
+    left: 50px;
+    top: -255px;
+}
+
+.screen5 .mouse .m1 {
+    opacity: 1;
+}
+
+.screen5 .mouse .m2 {
+    opacity: 0;
+}
+
+.screen5 .mouse .hand {
+    position: absolute;
+    top: 250px;
+    transform: translateY(1000px);
+    left: 20px;
+    z-index: 10;
+    /* 	position: absolute;
+        top: 200px; */
+}
+
+.screen5 .soft {
+    position: absolute;
+    bottom: 60px;
+    left: 100px;
+    opacity: 0;
+    transform: rotate(30deg);
+}
+
+/* 第五屏动画 */
+.screen5.now .mouse .hand {
+    transform: none;
+    transition: all 0.9s linear;
+}
+
+.screen5.now .mouse .m2 {
+    opacity: 1;
+    transition: all 0.2s linear;
+}
+
+.screen5.now .mouse .m1 {
+    opacity: 0;
+    transition: all 0.2s linear 0.9s;
+}
+
+.screen5.now .soft {
+    animation: down 2s linear 2s forwards;
+}
+
+.screen5.now .crad .c2 {
+    transform: none;
+    transition: all 1s linear 3s;
+}
+
+@keyframes down {
+    0% {
+        opacity: 1;
+        transform: translateY(-800px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-300px) rotate(30deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(30deg);
+    }
+}
+
+/* 第六屏 */

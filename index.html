@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="css/jquery.fullpage.css"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <title>H5的创意工坊</title>
+    <script>
+        a = 0;
+    </script>
+</head>
+<body>
+<!-- 公用元素 -->
+<a href="javascript:;" class="go"><img src="images/00-go.png"></a>
+<a href="javascript:;" class="more"><img src="images/00-more.png"></a>
+
+<div class="container">
+    <!-- 每一个切换的屏幕 -->
+    <div class="section screen1">
+        <!-- 如果是大屏幕 是基于top定位  会脱离显示区域 -->
+        <!-- 所以用一个一个固定大小的容器content来定义内容 -->
+        <div class="content">
+            <div class="goods">
+                <img src="images/01-goods.png">
+            </div>
+
+            <div class="soft">
+                <img src="images/01-sofa.png">
+            </div>
+            <div class="fly">
+                <img src="images/01-fly.png">
+            </div>
+        </div>
+    </div>
+    <!-- 第二屏  动画特点：完全进入当前屏的时候执行动画 -->
+    <div class="section screen2">
+        <div class="content">
+            <div class="goods"><img src="images/02-goods.png"></div>
+            <div class="soft"><img src="images/02-sofa.png"></div>
+            <!-- 输入框 搜索框 关键字 -->
+            <div class="input">
+                <img class="search" src="images/02-search.png" alt="">
+                <img class="key" src="images/02-key.png" alt="">
+            </div>
+            <!--文字-->
+            <div class="text">
+                <img class="text1" src="images/02-text1.png" alt="">
+                <img class="text2" src="images/02-text2.png" alt="">
+            </div>
+        </div>
+    </div>
+    <!-- 第三屏  -->
+    <div class="section screen3">
+        <div class="content">
+            <div class="soft">
+                <img src="images/02-sofa.png">
+            </div>
+            <div class="change">
+                <img src="images/03-change01.gif">
+                <img src="images/03-change02.gif"/>
+            </div>
+            <div class="cart">
+                <img src="images/03-cart01.gif">
+                <img src="images/03-cart02.gif"/>
+            </div>
+        </div>
+    </div>
+    <div class="section screen4">
+        <div class="content">
+            <div class="cloud"><img src="images/04-cloud.png"></div>
+            <div class="text">
+                <img src="images/04-text01.png">
+                <img src="images/04-text02.png">
+            </div>
+            <div class="soft">
+                <img src="images/02-sofa.png">
+            </div>
+            <div class="cart">
+                <img src="images/04-cart.png">
+            </div>
+            <div class="address">
+                <img src="images/04-address01.png"/>
+                <img src="images/04-address02.png">
+            </div>
+        </div>
+
+    </div>
+    <div class="section screen5">
+        <div class="content">
+            <div class="text">
+                <img src="images/05-text.png"/>
+            </div>
+            <div class="crad">
+                <img class="c1" src="images/05-card.png"/>
+                <img class="c2" src="images/05-order.png"/>
+            </div>
+            <div class="mouse">
+                <img class="hand" src="images/05-hand.png"/>
+                <div class="over">
+                    <img class="m2" src="images/05-mouse02.png" alt="">
+                    <img class="m1" src="images/05-mouse01.png" alt="">
+                </div>
+            </div>
+            <div class="soft">
+                <img src="images/02-sofa.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="section screen6 ">
+
+    </div>
+    <div class="section"></div>
+    <div class="section"></div>
+</div>
+
+<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/jquery.fullpage.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
