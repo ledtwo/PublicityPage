@@ -21,7 +21,7 @@
 .content {
     width: 900px;
     height: 600px;
-    /* 	background: rgba(0,0,0,.1); */
+/*    background: rgba(0,0,0,.1); */
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -404,7 +404,7 @@
 .screen5 .mouse .m1, .m2 {
     position: absolute;
     left: 50px;
-    top: -255px;
+    top: -280px;
 }
 
 .screen5 .mouse .m1 {
@@ -416,8 +416,9 @@
 }
 
 .screen5 .mouse .hand {
+	opacity: 0;
     position: absolute;
-    top: 250px;
+    top: 235px;
     transform: translateY(1000px);
     left: 20px;
     z-index: 10;
@@ -435,6 +436,7 @@
 
 /* 第五屏动画 */
 .screen5.now .mouse .hand {
+	opacity: 1;
     transform: none;
     transition: all 0.9s linear;
 }
@@ -457,7 +459,10 @@
     transform: none;
     transition: all 1s linear 3s;
 }
-
+.screen5.leaved .soft{
+	z-index: 1000;
+	animation: downsix 2s linear;
+}
 @keyframes down {
     0% {
         opacity: 1;
@@ -472,5 +477,251 @@
         transform: rotate(30deg);
     }
 }
-
+@keyframes downsix{
+	from{
+		opacity: 1;
+	}
+	to{
+		opacity: 1;
+		transform: translateY(450px) scale(0.3);
+	}
+	
+}
 /* 第六屏 */
+.screen6{
+	/* 知识点：背景布局及图片位置 */
+	background: url(../images/06-bg.png) no-repeat 25% bottom;
+}
+
+.screen6 .cloud{
+	position: absolute;
+	top: -100px;
+}
+.screen6 .cloud img:first-child{
+	position: absolute;
+	animation: cloudFirst 10s linear infinite alternate;
+}
+.screen6 .cloud img:last-child{
+	position: absolute;
+	animation: cloudLast 10s linear infinite alternate;
+}
+.screen6 .text{
+	position: absolute;
+	top: 10px;
+	left: 140px;
+}
+.screen6 .text img:last-child{
+	opacity: 0;
+}
+.screen6 .text img:first-child{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.screen6 .box{
+	position: absolute;
+	top: 100px;
+	left: 140px;
+	z-index: 1002;
+}
+.screen6 .car{
+	position: absolute;
+	bottom: 80px;
+	left: 120px;
+	z-index: 1003;
+}
+.screen6 .car img{
+	position: absolute;
+	opacity: 0;
+/* 	top: 0;
+	right: 0; */
+}
+.screen6 .car .truck{
+	position: relative;
+	opacity: 1;
+}
+.screen6 .car .buyer{
+	right: 0;
+	top: -50px;
+}
+.screen6 .car .address{
+	right: 0;
+	top: -50px;
+}
+.screen6 .car .worker{
+	left: 0;
+	bottom: 0;
+}
+.screen6 .car .say{
+	top: -350px;
+	right: -330px;
+	opacity: 0;
+}
+.screen6 .person{
+	position: absolute;
+	right: 15px;
+	bottom: 116px;
+	width: 106px;
+	height: 150px;
+}
+.screen6 .person .door{
+	opacity: 0;
+}
+.screen6 .person .girl{
+	position: absolute;
+	bottom: 0;
+	transform: scale(0);
+	transform-origin: right bottom;
+}
+/* 第六屏动画 */
+
+
+.screen6.now{
+	transition: background 2s linear 3s;
+	background: url(../images/06-bg.png) no-repeat 100% bottom;
+}
+.screen6 .box.show{
+	transform: none;
+	animation: boxgoing 3s linear forwards;
+}
+.screen6.now .car .buyer{
+	animation: show-address 1s linear 3s;
+}
+.screen6.now .car .address{
+	animation: show-address 1s linear 4s forwards;
+}
+.screen6.now .car .worker{
+	left: 0;
+	bottom: 0;
+	transform-origin: left bottom;
+	animation: carray 2s linear 5s forwards;
+}
+.screen6.now .car .say{
+	opacity: 1;
+	transition: all 1s linear 8s;
+}
+.screen6.now .person .door{
+	opacity: 1;
+	transition: all 1s linear 6s;
+}
+.screen6.now .person .girl{
+	animation: girl 1s linear 6.5s forwards;
+}
+.screen6.now .text img:first-child{
+	opacity: 0;
+	transition: all 1s linear 5s;
+}
+.screen6.now .text img:last-child{
+	opacity: 1;
+	transition: all 0.1s linear 6s;
+}
+@keyframes girl{
+	0%{
+		transform: scale(0);
+	}
+	100%{
+		transform: scale(1);
+	}
+}
+@keyframes carray{
+	0%{
+		opacity: 1;
+		transform: scale(0);
+	}
+	33.3%{
+		transform: scale(1);
+	}
+	66.7%{
+		transform: scale(1) translateY(-30px);
+	}
+	100%{
+		opacity: 1;
+		transform: scale(1) translateY(-30px) translateX(280px);
+	}
+}
+@keyframes show-address{
+	from{
+		opacity: 0;
+	}
+	to{
+		opacity: 1;
+	}
+}
+@keyframes boxgoing{
+	0%{
+		transform: translateX(-500px);
+	}
+	30%{
+		transform: none;
+	}
+	65%{
+		transform: none;
+	}
+	100%{
+		transform: translateY(300px) scale(0.6);
+	}
+}
+@keyframes cloudFirst{
+	from{
+		transform: translateX(-300px);
+	}
+	to{
+		transform: translateX(500px);
+	}
+}
+@keyframes cloudLast{
+	from{
+		transform: translateX(500px);
+	}
+	to{
+		transform: translateX(-300px);
+	}
+}
+/* 第七屏 */
+.screen7{
+	background: url(../images/07-bg.png) no-repeat center bottom;
+}
+.screen7 .star{
+	position: absolute;
+	left: 158px;
+	top: 142px;
+}
+.screen7 .star img{
+	display: none;
+	float: left;
+	margin-right: 6px;
+}
+.screen7 .text{
+	position: absolute;
+	left: 170px;
+	top: 180px;
+	opacity: 0;
+}
+.screen7.now .text{
+	opacity: 1;
+	transition: all 1s linear 1s; 
+}
+/* 第八屏 */
+.screen8{
+	background: url(../images/08-bg.png);
+}
+.screen8 .gobutton img:last-child{
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	opacity: 0;
+}
+.screen8 .gobutton{
+	text-align: center;
+}
+.screen8 .gobutton img:last-child:hover {
+	opacity: 1;
+}
+.screen8 .again{
+	position: absolute;
+	top: 65px;
+	right: 50px;
+}
+.screen8 .hand{
+	position: absolute;
+}
